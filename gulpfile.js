@@ -12,33 +12,28 @@ gulp.task("copy-html", () => {
                 .pipe(browsersync.stream());
 });
 
-gulp.task("build-js", () => {
-    return gulp.src("./src/js/main.js")
+gulp.task("build-ts", () => {
+    return gulp.src("./src/ts/main.ts")
                 .pipe(webpack({
                     mode: 'development',
+                    entry: './src/ts/main.ts',
                     output: {
                         filename: 'script.js'
                     },
-                    watch: false,
+                    watch: true,
                     devtool: "source-map",
                     module: {
                         rules: [
                           {
-                            test: /\.m?js$/,
-                            exclude: /(node_modules|bower_components)/,
-                            use: {
-                              loader: 'babel-loader',
-                              options: {
-                                presets: [['@babel/preset-env', {
-                                    debug: true,
-                                    corejs: 3,
-                                    useBuiltIns: "usage"
-                                }]]
-                              }
-                            }
+                            test: /\.tsx?$/,
+                            use: 'ts-loader',
+                            exclude: /node_modules/,
                           }
                         ]
-                      }
+                      },
+                      resolve: {
+                        extensions: ['.tsx', '.ts', '.js'],
+                      },
                 }))
                 .pipe(gulp.dest(dist))
                 .on("end", browsersync.reload);
@@ -59,37 +54,37 @@ gulp.task("watch", () => {
     
     gulp.watch("./src/index.html", gulp.parallel("copy-html"));
     gulp.watch("./src/assets/**/*.*", gulp.parallel("copy-assets"));
-    gulp.watch("./src/js/**/*.js", gulp.parallel("build-js"));
+    gulp.watch("./src/js/**/*.js", gulp.parallel("build-ts"));
 });
 
-gulp.task("build", gulp.parallel("copy-html", "copy-assets", "build-js"));
-
-gulp.task("build-prod-js", () => {
-    return gulp.src("./src/js/main.js")
-                .pipe(webpack({
-                    mode: 'production',
-                    output: {
-                        filename: 'script.js'
-                    },
-                    module: {
-                        rules: [
-                          {
-                            test: /\.m?js$/,
-                            exclude: /(node_modules|bower_components)/,
-                            use: {
-                              loader: 'babel-loader',
-                              options: {
-                                presets: [['@babel/preset-env', {
-                                    corejs: 3,
-                                    useBuiltIns: "usage"
-                                }]]
-                              }
-                            }
-                          }
-                        ]
+gulp.task("build-prod-ts", () => {
+  return gulp.src("./src/ts/main.ts")
+              .pipe(webpack({
+                mode: 'production',
+                entry: './src/ts/main.ts',
+                output: {
+                    filename: 'script.js'
+                },
+                watch: false,
+                devtool: "source-map",
+                module: {
+                    rules: [
+                      {
+                        test: /\.tsx?$/,
+                        use: 'ts-loader',
+                        exclude: /node_modules/,
                       }
-                }))
-                .pipe(gulp.dest(dist));
+                    ]
+                  },
+                  resolve: {
+                    extensions: ['.tsx', '.ts', '.js'],
+                  },
+            }))
+            .pipe(gulp.dest(dist));
 });
+
+gulp.task("build", gulp.parallel("copy-html", "copy-assets", "build-ts"));
+
+gulp.task("build-prod", gulp.parallel("copy-html", "copy-assets", "build-prod-ts"));
 
 gulp.task("default", gulp.parallel("watch", "build"));

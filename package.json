@@ -1,12 +1,12 @@
 {
-  "name": "picture",
+  "name": "portraits",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Andrey Kudinov",
   "license": "ISC",
   "browserslist": [
     "> 1%",
@@ -22,6 +22,10 @@
     "core-js": "^3.4.2",
     "gulp": "^4.0.2",
     "webpack": "^4.41.2",
-    "webpack-stream": "^5.2.1"
+    "webpack-stream": "^5.2.1",
+    "ts-loader": "^8.2.0"
+  },
+  "dependencies": {
+    "typescript": "^4.5.4"
   }
 }
