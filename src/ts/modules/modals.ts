@@ -2,12 +2,14 @@ interface IArgs {
   triggerSelector: string
   modalSelector: string
   closeSelector: string
-  closeClickOverlay?: boolean
+  destroyTrigger?: boolean
 }
 
 export const modals = () => {
+  let isButtonPressed: boolean = false
+
   const bindModal = (args: IArgs) => {
-    const { triggerSelector, modalSelector, closeSelector, closeClickOverlay = true } = args
+    const { triggerSelector, modalSelector, closeSelector, destroyTrigger = false } = args
 
     const triggers = document.querySelectorAll(triggerSelector),
       modal = document.querySelector<HTMLElement>(modalSelector),
@@ -17,6 +19,7 @@ export const modals = () => {
     const closePopups = () => {
       popups.forEach(popup => {
         popup.style.display = 'none'
+        popup.classList.add('animated', 'fadeIn')
       })
     }
 
@@ -27,14 +30,21 @@ export const modals = () => {
 
     triggers.forEach(trigger => {
       trigger.addEventListener('click', (event: any) => {
+        isButtonPressed = true
+
         if (event.target) {
           event.preventDefault()
         }
 
         closePopups()
+
+        if (destroyTrigger) {
+          trigger.remove()
+        }
   
         modal.style.display = 'block'
         document.body.style.overflow = 'hidden'
+
         if (document.querySelector(`${modalSelector} input:not([type='radio'])`)) {
           document.querySelector<HTMLElement>(`${modalSelector} input:not([type='radio'])`).focus()
         }
@@ -52,7 +62,7 @@ export const modals = () => {
     });
 
     modal.addEventListener('click', (event: any) => {
-      if (event.target === modal && closeClickOverlay) {
+      if (event.target === modal) {
         closePopups()
         closePopup()
       }
@@ -76,6 +86,17 @@ export const modals = () => {
     }, time)
   }
 
+  const openByScroll = (selector: string) => {
+    window.addEventListener('scroll', () => {
+      const { pageYOffset } = window
+      const clientHeight = document.documentElement.clientHeight
+      const scrollHeight = document.documentElement.scrollHeight
+      if (!isButtonPressed && (pageYOffset >= scrollHeight - clientHeight)) {
+        document.querySelector<HTMLElement>(selector).click()
+      }
+    })
+  }
+
   const design = {
     triggerSelector: '.button-design',
     modalSelector: '.popup-design',
@@ -85,10 +106,19 @@ export const modals = () => {
       triggerSelector: '.button-consultation',
       modalSelector: '.popup-consultation',
       closeSelector: '.popup-consultation .popup-close'
+    },
+    gift = {
+      triggerSelector: '.fixed-gift',
+      modalSelector: '.popup-gift',
+      closeSelector: '.popup-gift .popup-close',
+      destroyTrigger: true
     }
 
   bindModal(design)
   bindModal(consultation)
+  bindModal(gift)
 
-  showModalByTime('.popup-consultation', 5000)
+  // showModalByTime('.popup-consultation', 5000)
+
+  openByScroll('.fixed-gift')
 }
