@@ -1,4 +1,4 @@
-import { modals, slider, forms } from './modules';
+import { modals, slider, forms, validation } from './modules';
 
 window.addEventListener('DOMContentLoaded', () => {
   modals()
@@ -16,4 +16,6 @@ window.addEventListener('DOMContentLoaded', () => {
   slider(feedbackSliderArgs)
   slider(mainSliderArgs)
   forms()
+  validation('[name="name"]')
+  validation('[name="message"]')
 })
