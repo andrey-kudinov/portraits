@@ -1,20 +1,22 @@
-export const mask = (selector) => {
-  const setCursorPosition = (position, element) => {
+export const mask = (selector: string) => {
+  const setCursorPosition = (position: number, element: HTMLInputElement) => {
     element.focus()
 
-    if(element.setSelectionRange) {
+    // if (element.setSelectionRange) {
       element.setSelectionRange(position, position)
-    } else if(element.createTextRange) {
-      const range = elementTextRange()
+    // } 
+    // for IE
+    // else if(element.createTextRange) {
+    //   const range = elementTextRange()
 
-      range.collapse(true)
-      range.moveEnd('character', position)
-      range.moveStart('character', position)
-      range.select()
-    }
+    //   range.collapse(true)
+    //   range.moveEnd('character', position)
+    //   range.moveStart('character', position)
+    //   range.select()
+    // }
   }
 
-  function createMask(event) {
+  function createMask(event: Event) {
     const matrix = '+7 (___) ___ __ __',
       def = matrix.replace(/\D/g, '')
       
