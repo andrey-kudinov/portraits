@@ -1,4 +1,4 @@
-import { modals, slider, forms } from './modules';
+import { modals, slider, forms, mask } from './modules';
 
 window.addEventListener('DOMContentLoaded', () => {
   modals()
@@ -16,4 +16,5 @@ window.addEventListener('DOMContentLoaded', () => {
   slider(feedbackSliderArgs)
   slider(mainSliderArgs)
   forms()
+  mask('[name="phone"]')
 })
