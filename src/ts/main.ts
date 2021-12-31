@@ -1,4 +1,4 @@
-import { modals, slider, forms, validation, mask } from './modules';
+import { modals, slider, forms, validation, mask, showMore } from './modules';
 
 window.addEventListener('DOMContentLoaded', () => {
   modals()
@@ -19,4 +19,5 @@ window.addEventListener('DOMContentLoaded', () => {
   mask('[name="phone"]')
   validation('[name="name"]')
   validation('[name="message"]')
+  showMore('.button-styles', '.styles-2')
 })
