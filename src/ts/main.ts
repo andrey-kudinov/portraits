@@ -19,5 +19,5 @@ window.addEventListener('DOMContentLoaded', () => {
   mask('[name="phone"]')
   validation('[name="name"]')
   validation('[name="message"]')
-  showMore('.button-styles', '.styles-2')
+  showMore('.button-styles', '#styles .row')
 })
