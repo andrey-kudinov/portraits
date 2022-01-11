@@ -1,16 +1,31 @@
-import { modals, slider, forms, validation, mask, showMore } from './modules';
+import {
+  modals,
+  slider,
+  forms,
+  validation,
+  mask,
+  showMore,
+  calc
+} from './modules'
 
 window.addEventListener('DOMContentLoaded', () => {
   modals()
 
   const feedbackSliderArgs = {
-    slidesSelector: '.feedback-slider-item',
-    prevSelector: '.main-prev-btn',
-    nextSelector: '.main-next-btn'
-  },
+      slidesSelector: '.feedback-slider-item',
+      prevSelector: '.main-prev-btn',
+      nextSelector: '.main-next-btn'
+    },
     mainSliderArgs = {
       slidesSelector: '.main-slider-item',
       direction: 'vertical'
+    },
+    calcArgs = {
+      size: '#size',
+      material: '#material',
+      options: '#options',
+      promocode: '.promocode',
+      result: '.calc-price'
     }
 
   slider(feedbackSliderArgs)
@@ -20,4 +35,5 @@ window.addEventListener('DOMContentLoaded', () => {
   validation('[name="name"]')
   validation('[name="message"]')
   showMore('.button-styles', '#styles .row')
+  calc(calcArgs)
 })
