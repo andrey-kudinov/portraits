@@ -5,7 +5,8 @@ import {
   validation,
   mask,
   showMore,
-  calc
+  calc,
+  filter
 } from './modules'
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -36,4 +37,5 @@ window.addEventListener('DOMContentLoaded', () => {
   validation('[name="message"]')
   showMore('.button-styles', '#styles .row')
   calc(calcArgs)
+  filter()
 })
