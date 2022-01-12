@@ -1,22 +1,22 @@
 export const filter = () => {
-  const menu = document.querySelector('.portfolio-menu'),
+  const menu = document.querySelector<HTMLElement>('.portfolio-menu'),
     items = menu.querySelectorAll('li'),
-    btnAll = menu.querySelector('.all'),
-    btnLovers = menu.querySelector('.lovers'),
-    btnChef = menu.querySelector('.chef'),
-    btnGirl = menu.querySelector('.girl'),
-    btnGuy = menu.querySelector('.guy'),
-    btnGrandmother = menu.querySelector('.grandmother'),
-    btnGranddad = menu.querySelector('.granddad'),
+    btnAll = menu.querySelector<HTMLElement>('.all'),
+    btnLovers = menu.querySelector<HTMLElement>('.lovers'),
+    btnChef = menu.querySelector<HTMLElement>('.chef'),
+    btnGirl = menu.querySelector<HTMLElement>('.girl'),
+    btnGuy = menu.querySelector<HTMLElement>('.guy'),
+    btnGrandmother = menu.querySelector<HTMLElement>('.grandmother'),
+    btnGranddad = menu.querySelector<HTMLElement>('.granddad'),
     wrapper = document.querySelector('.portfolio-wrapper'),
-    markAll = wrapper.querySelectorAll('.all'),
+    markAll = wrapper.querySelectorAll<HTMLElement>('.all'),
     markLovers = wrapper.querySelectorAll('.lovers'),
     markGirl = wrapper.querySelectorAll('.girl'),
     markChef = wrapper.querySelectorAll('.chef'),
     markGuy = wrapper.querySelectorAll('.guy'),
-    no = document.querySelector('.portfolio-no')
+    no = document.querySelector<HTMLElement>('.portfolio-no')
 
-  const typeFilter = markType => {
+  const typeFilter = (markType?: NodeListOf<Element> | NodeListOf<HTMLElement>) => {
     markAll.forEach(mark => {
       mark.style.display = 'none'
       mark.classList.remove('animated', 'fadeIn')
@@ -44,7 +44,7 @@ export const filter = () => {
   btnGrandmother.onclick = () => typeFilter()
   btnGranddad.onclick = () => typeFilter()
 
-  menu.onclick = (event) => {
+  menu.onclick = (event: any) => {
     const target = event.target
 
     if (target && target.tagName === 'LI') {
