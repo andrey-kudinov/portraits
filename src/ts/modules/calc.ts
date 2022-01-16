@@ -1,10 +1,18 @@
-export const calc = args => {
+interface IProps {
+  size: string
+  material: string
+  options: string
+  promocode: string
+  result: string
+}
+
+export const calc = (args: IProps) => {
   const { size, material, options, promocode, result } = args,
-    sizeBlock = document.querySelector(size),
-    materialBlock = document.querySelector(material),
-    optionsBlock = document.querySelector(options),
-    promocodeBlock = document.querySelector(promocode),
-    resultBlock = document.querySelector(result)
+    sizeBlock = document.querySelector<HTMLInputElement>(size),
+    materialBlock = document.querySelector<HTMLInputElement>(material),
+    optionsBlock = document.querySelector<HTMLInputElement>(options),
+    promocodeBlock = document.querySelector<HTMLInputElement>(promocode),
+    resultBlock = document.querySelector<HTMLElement>(result)
 
   let sum = 0
 
@@ -19,9 +27,9 @@ export const calc = args => {
     }
 
     if (promocodeBlock.value === 'IWANTPOPART') {
-      resultBlock.textContent = Math.round(sum * 0.7)
+      resultBlock.textContent = String(Math.round(sum * 0.7))
     } else {
-      resultBlock.textContent = sum
+      resultBlock.textContent = String(sum)
     }
   }
 
