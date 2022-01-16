@@ -6,7 +6,8 @@ import {
   mask,
   showMore,
   calc,
-  filter
+  filter,
+  pictureSize
 } from './modules'
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -38,4 +39,5 @@ window.addEventListener('DOMContentLoaded', () => {
   showMore('.button-styles', '#styles .row')
   calc(calcArgs)
   filter()
+  pictureSize('.sizes-block')
 })
