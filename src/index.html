@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="assets/css/bootstrap.css">
 	<link rel="stylesheet" href="assets/css/animate.css">
 	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/aos.css" />
 </head>
 <body>
 	<img class="fixed-gift wow pulse infinite" src=assets/img/gift.png alt>
@@ -128,7 +129,12 @@
 			</div>
 		</div>
 	</main>
-	<section class="promo">
+	<section
+		class="promo"
+		data-aos="fade-up"
+		data-aos-offset="-200"
+		data-aos-once="true"
+	>
 		<div class="container">
 			<div class="col-md-7">
 				<img class="promo-img" src="assets/img/promo-1.png" alt>
@@ -141,7 +147,12 @@
 		</div>
 		<img class="palette" src="assets/img/palette.png" alt>
 	</section>
-	<section class="styles" id="styles">
+	<section
+		class="styles" id="styles"
+		data-aos="fade-zoom-in"
+		data-aos-offset="-200"
+		data-aos-once="true"
+	>
 		<div class="container">
 			<p class="p-heading">Портрет на холсте</p>
 			<h2>Популярные стили рисунка</h2>
@@ -207,7 +218,12 @@
 		</div>
 		<img class=paints src=assets/img/paints.png alt>
 	</section>
-	<section class="card card-1 wow fadeIn">
+	<section
+		class="card card-1 wow fadeIn"
+		data-aos="zoom-out-right"
+		data-aos-offset="-200"
+		data-aos-once="true"
+	>
 		<div class=container>
 			<div class=card-block>
 				<div class=row>
@@ -225,7 +241,12 @@
 			</div>
 		</div>
 	</section>
-	<section class=calc>
+	<section
+		class="calc"
+		data-aos="zoom-out-up"
+		data-aos-offset="-200"
+		data-aos-once="true"
+	>
 		<div class=container>
 			<p class=p-heading>Калькулятор</p>
 			<h2>Рассчитайте стоимость и получите скидку 30%</h2>
@@ -269,7 +290,13 @@
 			</div>
 		</div>
 	</section>
-	<section class=portfolio id=portfolio>
+	<section
+		class="portfolio"
+		id="portfolio"
+		data-aos="fade-up-right"
+		data-aos-offset="-200"
+		data-aos-once="true"
+	>
 		<div class=container>
 			<div class=p-heading>Примеры работ</div>
 			<h2>Для кого делаем портрет?</h2>
@@ -319,7 +346,12 @@
 			<p class=portfolio-no>Таких портретов мы еще не делали, хотите быть первыми?</p>
 		</div>
 	</section>
-	<section class=gift>
+	<section
+		class="gift"
+		data-aos="fade-up-left"
+		data-aos-offset="-200"
+		data-aos-once="true"
+	>
 		<div class=container>
 			<div class=col-md-6>
 				<p class=p-heading>Портрет по фото</p>
@@ -339,7 +371,12 @@
 			</div>
 		</div>
 	</section>
-	<section class=features>
+	<section
+		class="features"
+		data-aos="fade-down"
+		data-aos-offset="-200"
+		data-aos-once="true"
+	>
 		<div class=container>
 			<p class=p-heading>Наши преимущества</p>
 			<h2>Почему выбирают именно нас?</h2>
@@ -363,7 +400,12 @@
 			</div>
 		</div>
 	</section>
-	<section class=sizes>
+	<section
+		class="sizes"
+		data-aos="fade-down-right"
+		data-aos-offset="-200"
+		data-aos-once="true"
+	>
 		<div class=container>
 			<div class=p-heading>Популярные размеры и цены</div>
 			<h2>Можем изготовить картину любого размера!</h2>
@@ -398,7 +440,13 @@
 			</div>
 		</div>
 	</section>
-	<section class=scheme id=scheme>
+	<section
+		class="scheme"
+		id="scheme"
+		data-aos="fade-down-left"
+		data-aos-offset="-200"
+		data-aos-once="true"
+	>
 		<div class=container>
 			<p class=p-heading>Как мы будем с вами работать</p>
 			<h2>Процесс изготовления картины</h2>
@@ -709,5 +757,9 @@
 		</div>
 	</div>
 	<script src="script.js"></script>
+	<script src="assets/js/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
 </body>
 </html>
