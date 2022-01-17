@@ -41,5 +41,5 @@ window.addEventListener('DOMContentLoaded', () => {
   calc(calcArgs)
   filter()
   pictureSize('.sizes-block')
-  accordion('.accordion-heading', '.accordion-block')
+  accordion('.accordion-heading')
 })

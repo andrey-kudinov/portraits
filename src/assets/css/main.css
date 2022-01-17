@@ -912,11 +912,24 @@ h4 {
   display: block;
 }
 .often-questions .accordion-block {
-  display: none;
-  margin-top: 1rem;
+  overflow: hidden;
+  max-height: 0;
+  transition: .3s ease-out;
+  opacity: 0;
   background-color: #f7e7e6;
-  padding: 3rem 4rem;
+  /* display: none;
+  margin-top: 1rem;
+  padding: 3rem 4rem; */
 }
+
+.often-questions .accordion-block.active-content {
+  overflow: visible;
+  margin-top: 1rem;
+  padding: 3rem 4rem;
+  opacity: 1;
+}
+
+
 .often-questions .accordion-block:before {
   content: '';
   position: absolute;
