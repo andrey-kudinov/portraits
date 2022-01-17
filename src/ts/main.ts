@@ -7,7 +7,8 @@ import {
   showMore,
   calc,
   filter,
-  pictureSize
+  pictureSize,
+  accordion
 } from './modules'
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -40,4 +41,5 @@ window.addEventListener('DOMContentLoaded', () => {
   calc(calcArgs)
   filter()
   pictureSize('.sizes-block')
+  accordion('.accordion-heading', '.accordion-block')
 })
