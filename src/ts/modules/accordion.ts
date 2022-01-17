@@ -1,4 +1,4 @@
-export const accordion = (triggers) => {
+export const accordion = (triggers: string) => {
   const buttons = document.querySelectorAll(triggers)
 
   buttons.forEach(button => {
