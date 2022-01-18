@@ -8,6 +8,7 @@ import {
   calc,
   filter,
   pictureSize,
+  accordion,
   burger
 } from './modules'
 
@@ -41,5 +42,6 @@ window.addEventListener('DOMContentLoaded', () => {
   calc(calcArgs)
   filter()
   pictureSize('.sizes-block')
+  accordion('.accordion-heading')
   burger('.burger-menu', '.burger')
 })
