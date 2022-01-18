@@ -1,4 +1,4 @@
-export const scroll = upSelector => {
+export const scroll = (upSelector: string) => {
   const upElement = document.querySelector(upSelector)
 
   window.addEventListener('scroll', () => {
@@ -21,10 +21,10 @@ export const scroll = upSelector => {
       const widthTop = document.documentElement.scrollTop,
         hash = this.hash,
         toBlock = document.querySelector(hash).getBoundingClientRect().top
-      let start = null
+      let start: number = 0
 
-      const step = time => {
-        if (start === null) {
+      const step = (time: number) => {
+        if (start === 0) {
           start = time
         }
 
