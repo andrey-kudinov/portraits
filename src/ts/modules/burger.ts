@@ -1,6 +1,6 @@
-export const burger = (menuSelector, burgerSelector) => {
-  const menuElement = document.querySelector(menuSelector),
-    burgerElement = document.querySelector(burgerSelector)
+export const burger = (menuSelector: string, burgerSelector: string) => {
+  const menuElement = document.querySelector<HTMLElement>(menuSelector),
+    burgerElement = document.querySelector<HTMLElement>(burgerSelector)
 
   menuElement.style.display = 'none'
   
