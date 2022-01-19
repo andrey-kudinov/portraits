@@ -26,7 +26,7 @@ export const filter = () => {
     no.classList.remove('animated', 'fadeIn')
 
     if (markType) {
-      markType.forEach(mark => {
+      markType.forEach((mark: HTMLElement) => {
         mark.style.display = 'block'
         mark.classList.add('animated', 'fadeIn')
       })
