@@ -1298,12 +1298,12 @@ h4 {
   .paints {
     display: none;
   }
-  .calc .file_upload > div {
+  /* .calc .file_upload > div {
     display: none;
   }
   .calc .file_upload > button {
     width: 100%;
-  }
+  } */
   .popup-design .file_upload > div {
     display: none;
   }
